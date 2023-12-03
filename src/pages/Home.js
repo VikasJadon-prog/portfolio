@@ -6,11 +6,12 @@ import Blog from '../pages/Blog';
 import Contact from '../pages/Contact';
 import Footer from '../Components/Footer';
 
-
 const Home = () => {
   return (
     <>
+    
       <div className='home'>
+        <div className ='slider-wrapper'>
         <div className="home-Container">
           <div className='home-Container-Inner'>
             <span>WELCOME TO MY WORLD</span>
@@ -21,6 +22,7 @@ const Home = () => {
             <h2 className='home-Container-Country'>based in USA.</h2>
           </div>
         </div>
+        </div>
       </div>
       <div>
         <About />
@@ -30,6 +32,7 @@ const Home = () => {
         <Contact />
         <Footer />
       </div>
+      
     </>
   )
 }
