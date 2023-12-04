@@ -8,8 +8,8 @@ const Footer = () => {
                 <div className='footer-logo'>
                     <img src={footerlogo} />
                 </div>
-            </div>
-            <div className='footer-center'>
+
+                <div className='footer-center'>
                 <ul className='footer-center-ui'>
                     <li className='footer-center-ui-li'>
                         <a href="https://www.facebook.com/" className='footer-center-ui-li-a'>
@@ -36,6 +36,8 @@ const Footer = () => {
             <div className="right-footer">
                 <p>Copyright © 2022 Rainbow-Themes. All Rights Reserved.</p>
             </div>
+            </div>
+            
         </div>
     )
 }

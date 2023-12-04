@@ -8,12 +8,16 @@ const Header = () => {
   return (
     <>
     <div className="App-header">
+      <div className="app-header-row">
       <div className="Left-header">
-        <img
+       <div className="logo">
+       <img
           src={logo}
           alt="Digital Agency"
           className="logo-img"
         />
+       </div>
+        <div className="navbar">
         <nav className="header-nav">
           <ui className="header-Ui">
             <li >
@@ -36,9 +40,12 @@ const Header = () => {
             </li>
           </ui>
         </nav>
+        </div>
       </div>
+      <div className="app-right-header">
       <RightHeader />
-      
+      </div>
+      </div>
     </div>
     <Mobile/>
     </>

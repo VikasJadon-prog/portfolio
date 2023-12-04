@@ -1,5 +1,5 @@
 import React from "react";
-import blog01 from '../assets/images/blog01.jpg'
+import blog01 from '../assets/images/blog01.jpg';
 import blog02 from '../assets/images/blog02.jpg';
 import blog03 from '../assets/images/blog03.jpg';
 
@@ -82,5 +82,4 @@ const Blog = () => {
 
   </div>
 };
-
 export default Blog;

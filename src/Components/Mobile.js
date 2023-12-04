@@ -12,11 +12,14 @@ const Mobile = () => {
     return (
         <div className='mobile-header'>
             <div className='mobile-header-container'>
-                <img
+               <div className='mobile-header-logo'>
+               <img
                     src={logo}
                     alt="Digital Agency"
                     className="logo-img"
                 />
+               </div>
+                <div className='mobile-right-header'>
                 <RightHeader />
                 <FaBars onClick={( ) => {
                     setIsMenuOpen(true);
@@ -26,8 +29,7 @@ const Mobile = () => {
                         setIsMenuOpen(false);
 
                     }} className='closer' />
-                    <ul className='mobile-header-closer-ui'>
-                        
+                    <ul className='mobile-header-closer-ui'>   
                         <li><Link to="/" className='mobile-header-closer-ui-li'>Home</Link></li>
                         <li><Link to="about" className='mobile-header-closer-ui-li' >About</Link></li>
                         <li><Link to="service" className='mobile-header-closer-ui-li'>Service</Link></li>
@@ -35,6 +37,7 @@ const Mobile = () => {
                         <li><Link to="blog" className='mobile-header-closer-ui-li'>Blog</Link></li>
                         <li><Link to="contact" className='mobile-header-closer-ui-li'>Contact</Link></li>
                     </ul>
+                </div>
                 </div>
             </div>
         </div>
