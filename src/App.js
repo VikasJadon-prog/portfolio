@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "./Components/Header";
+// import Header from "./Components/Header";
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import "./App.css";
 import Home from "./pages/Home";
@@ -15,7 +15,7 @@ function App() {
       <div className="App">
         <div className="slide-container">
           <BrowserRouter>
-            <Header />
+            {/* <Header /> */}
             <Routes>
               <Route path="/" exact element={<Home />} />
               <Route path="/about" exact element={<About />} />
