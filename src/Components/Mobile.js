@@ -20,7 +20,9 @@ const Mobile = () => {
                 />
                </div>
                 <div className='mobile-right-header'>
-                <RightHeader />
+         <div className='mobile-social-right-header'>
+         <RightHeader />
+         </div>
                 <FaBars onClick={( ) => {
                     setIsMenuOpen(true);
                 }} className='fabars' />

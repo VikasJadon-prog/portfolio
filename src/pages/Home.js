@@ -9,9 +9,9 @@ import Footer from '../Components/Footer';
 const Home = () => {
   return (
     <>
-    
-      <div className='home'>
-        <div className ='slider-wrapper'>
+    <div className='main-page' >
+        <div className='home'>
+     
         <div className="home-Container">
           <div className='home-Container-Inner'>
             <span>WELCOME TO MY WORLD</span>
@@ -23,8 +23,7 @@ const Home = () => {
           </div>
         </div>
         </div>
-      </div>
-      <div>
+        <div className='other-pages'>
         <About />
         <Service />
         <Portifolio />
@@ -32,7 +31,11 @@ const Home = () => {
         <Contact />
         <Footer />
       </div>
+      </div>
       
+    
+      
+
     </>
   )
 }
