@@ -7,7 +7,7 @@ const Contact = () => {
       <div className="content">
         <h2 className="contact-content-h2">Hire Me.</h2>
         <p className="contact-content-p">"I am available for freelance work. Connect with me via phone: "
-          <a className="contact-content-a">01923 088574</a> or email: <a className="contact-content-a">admin@example.com</a></p>
+          <a className="contact-content-a" href="xyz">01923 088574</a> or email: <a className="contact-content-a" href="xyz">admin@example.com</a></p>
       </div>
       <div >
         <form className="form">
@@ -28,7 +28,7 @@ const Contact = () => {
       </div>
     </div>
     <div className="contactimgdiv">
-      <img className="contactimg" src={aboutContact} />
+      <img className="contactimg" src={aboutContact}  alt="contactimg"/>
     </div>
 
   </div>

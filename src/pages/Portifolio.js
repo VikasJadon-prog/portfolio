@@ -1,4 +1,9 @@
 import React from "react";
+import img1 from  '../assets/images/portfolio-1.jpg';
+import img2 from '../assets/images/portfolio-2.jpg';
+import img3 from '../assets/images/portfolio-3.jpg';
+import img4 from '../assets/images/portfolio-4.jpg';
+
 
 
 const Portifolio = () => {
@@ -13,126 +18,141 @@ const Portifolio = () => {
         <p className="portifolio-inner-container-h1-p">
           There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration.</p>
       </div>
-      <div className="portifolio-grid">
-        <div className="portifolio-grid-container-1">
-          <a className="portifolio-grid-container-a">
-            <div className="portifolio-grid-container-inner">
-              <div className="portifolio-grid-container-inner-content">
-                <p className="portifolio-grid-container-inner-content-p">
-                  Development
-                </p>  
-                <h3 className="portifolio-grid-container-inner-content-h3">
-                  <a>Getting tickets to the big show</a>
-                </h3>
-              </div>
-              <div className="portifolio-grid-container-inner-btn">
-                <a>
-                  VIEW DETAILS
-                </a>
-              </div>
-
-            </div>
-          </a>
-        </div>
-        <div className="portifolio-grid-container-2">
-          <a className="portifolio-grid-container-a">
-            <div className="portifolio-grid-container-inner">
-              <div className="portifolio-grid-container-inner-content">
-                <p className="portifolio-grid-container-inner-content-p">
-                  Development
-                </p>
-                <h3 className="portifolio-grid-container-inner-content-h3">
-                  <a>Getting tickets to the big show</a>
-                </h3>
-              </div>
-              <div className="portifolio-grid-container-inner-btn">
-                <a>
-                  VIEW DETAILS
-                </a>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div className="portifolio-grid-container-3">
-          <a className="portifolio-grid-container-a">
-            <div className="portifolio-grid-container-inner">
-          
-              <div className="portifolio-grid-container-inner-content">
-                <p className="portifolio-grid-container-inner-content-p">
-                  Development
-                </p>
-                <h3 className="portifolio-grid-container-inner-content-h3">
-                  <a>Getting tickets to the big show</a>
-                </h3>
-              </div>
-              <div className="portifolio-grid-container-inner-btn">
-                <a>
-                  VIEW DETAILS
-                </a>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div className="portifolio-grid-container-4">
-          <a className="portifolio-grid-container-a">
-            <div className="portifolio-grid-container-inner">
-              <div className="portifolio-grid-container-inner-content">
-                <p className="portifolio-grid-container-inner-content-p">
-                  Development
-                </p>
-                <h3 className="portifolio-grid-container-inner-content-h3">
-                  <a>Getting tickets to the big show</a>
-                </h3>
-              </div>
-              <div className="portifolio-grid-container-inner-btn">
-                <a>
-                  VIEW DETAILS
-                </a>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div className="portifolio-grid-container-5">
-          <a className="portifolio-grid-container-a">
-            <div className="portifolio-grid-container-inner">
-              <div className="portifolio-grid-container-inner-content">
-                <p className="portifolio-grid-container-inner-content-p">
-                  Development
-                </p>
-                <h3 className="portifolio-grid-container-inner-content-h3">
-                  <a>Getting tickets to the big show</a>
-                </h3>
-              </div>
-              <div className="portifolio-grid-container-inner-btn">
-                <a>
-                  VIEW DETAILS
-                </a>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div className="portifolio-grid-container-6">
-          <a className="portifolio-grid-container-a">
-            <div className="portifolio-grid-container-inner">
-              <div className="portifolio-grid-container-inner-content">
-                <p className="portifolio-grid-container-inner-content-p">
-                  Development
-                </p>
-                <h3 className="portifolio-grid-container-inner-content-h3">
-                  <a>Getting tickets to the big show</a>
-                </h3>
-              </div>
-              <div className="portifolio-grid-container-inner-btn">
-                <a>
-                  VIEW DETAILS
-                </a>
-              </div>
-            </div>
-          </a>
-        </div>
+      <div className='portfolio-grid'>
+      <div className='port-css'>
+<div className='port-box'>
+    <div className='port-containers' style={{backgroundImage: `url(${img1})`}}>
+    <div className="portifolio-grid-container-inner">
+      <div className="portifolio-grid-container-inner-content">
+        <p className="portifolio-grid-container-inner-content-p">
+          Development
+        </p>  
+        <h3 className="portifolio-grid-container-inner-content-h3">
+        Getting tickets to the big show
+        </h3>
       </div>
+      <div className="portifolio-grid-container-inner-btn">
+       <span>VIEW DETAILS</span>
+      </div>
+    </div>
+
+    </div>
+    </div>
+
+</div>
+    <div className='port-css'>
+<div className='port-box'>
+    <div className='port-containers' style={{backgroundImage: `url(${img2})`}}>
+    <div className="portifolio-grid-container-inner">
+      <div className="portifolio-grid-container-inner-content">
+        <p className="portifolio-grid-container-inner-content-p">
+          Development
+        </p>  
+        <h3 className="portifolio-grid-container-inner-content-h3">
+        Getting tickets to the big show
+        </h3>
+      </div>
+      <div className="portifolio-grid-container-inner-btn">
+       <span>VIEW DETAILS</span>
+      </div>
+    </div>
+
+    </div>
+
+</div>
+
+</div>
+<div className='port-css'>
+<div className='port-box'>
+    <div className='port-containers' style={{backgroundImage: `url(${img3})`}}>
+    <div className="portifolio-grid-container-inner">
+      <div className="portifolio-grid-container-inner-content">
+        <p className="portifolio-grid-container-inner-content-p">
+          Development
+        </p>  
+        <h3 className="portifolio-grid-container-inner-content-h3">
+        Getting tickets to the big show
+        </h3>
+      </div>
+      <div className="portifolio-grid-container-inner-btn">
+       <span>VIEW DETAILS</span>
+      </div>
+    </div>
+
+    </div>
+
+</div>
+
+</div>
+<div className='port-css'>
+<div className='port-box'>
+    <div className='port-containers' style={{backgroundImage: `url(${img4})`}}>
+    <div className="portifolio-grid-container-inner">
+      <div className="portifolio-grid-container-inner-content">
+        <p className="portifolio-grid-container-inner-content-p">
+          Development
+        </p>  
+        <h3 className="portifolio-grid-container-inner-content-h3">
+        Getting tickets to the big show
+        </h3>
+      </div>
+      <div className="portifolio-grid-container-inner-btn">
+       <span>VIEW DETAILS</span>
+      </div>
+    </div>
+
+    </div>
+
+</div>
+
+</div>
+<div className='port-css'>
+<div className='port-box'>
+    <div className='port-containers' style={{backgroundImage: `url(${img3})`}}>
+    <div className="portifolio-grid-container-inner">
+      <div className="portifolio-grid-container-inner-content">
+        <p className="portifolio-grid-container-inner-content-p">
+          Development
+        </p>  
+        <h3 className="portifolio-grid-container-inner-content-h3">
+        Getting tickets to the big show
+        </h3>
+      </div>
+      <div className="portifolio-grid-container-inner-btn">
+       <span>VIEW DETAILS</span>
+      </div>
+    </div>
+
+    </div>
+
+</div>
+
+</div>
+<div className='port-css'>
+<div className='port-box'>
+    <div className='port-containers' style={{backgroundImage: `url(${img4})`}}>
+    <div className="portifolio-grid-container-inner">
+      <div className="portifolio-grid-container-inner-content">
+        <p className="portifolio-grid-container-inner-content-p">
+          Development
+        </p>  
+        <h3 className="portifolio-grid-container-inner-content-h3">
+        Getting tickets to the big show
+        </h3>
+      </div>
+      <div className="portifolio-grid-container-inner-btn">
+       <span>VIEW DETAILS</span>
+      </div>
+    </div>
+
+    </div>
+
+</div>
+
+</div>
+</div>
       <div className="viewMore-btn">
-        <a>
+        <a href="xyz">
           VIEW DETAILS
         </a>
       </div>
