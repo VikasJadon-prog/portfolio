@@ -152,9 +152,7 @@ const Portifolio = () => {
 </div>
 </div>
       <div className="viewMore-btn">
-        <a href="xyz">
-          VIEW DETAILS
-        </a>
+      VIEW DETAILS
       </div>
     </div>
   </div>
