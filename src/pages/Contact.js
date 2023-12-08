@@ -1,8 +1,15 @@
-import React from "react";
-import aboutContact from '../assets/images/aboutContact.jpg'
+import React, { useState } from "react";
+import aboutContact from '../assets/images/aboutContact.jpg';
+import Table from 'react-bootstrap/Table';
+
 
 const Contact = () => {
-  return <div className="contact">
+
+const [product ,setProduct] = useState([])
+
+
+  return <>
+  <div className="contact">
     <div className="contact-form">
       <div className="content">
         <h2 className="contact-content-h2">Hire Me.</h2>
@@ -11,18 +18,10 @@ const Contact = () => {
       </div>
       <div >
         <form className="form">
-          <label className="item01">
-            <input type="text" name="name" id="item01" placeholder="Your Name" />
-          </label >
-          <label className="item02">
-            <input type="text" name="email" id="item01" placeholder="Your Email" />
-          </label>
-          <label className="item03">
-            <input type="text" name="subject" id="item01" placeholder="Write a Subject" />
-          </label>
-          <label className="item04">
-            <input type="text" name="message" id="item04" placeholder="Your Message" />
-          </label>
+        <input type="text" name="name" id="item01" placeholder="Your Name*" />
+        <input type="text" name="email" id="item01" placeholder="Your Email*" />
+          <input type="text" name="subject" id="item01" placeholder="Write a Subject" />
+          <input type="text" name="message" id="item04" placeholder="Your Message" />
           <button type="submit" value="submit" id="submit">Submit</button>
         </form>
       </div>
@@ -32,6 +31,28 @@ const Contact = () => {
     </div>
 
   </div>
+  <div className="form">
+  <Table striped bordered hover variant="dark">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Your Name</th>
+          <th>Your email</th>
+          <th>Subject</th>
+          <th>Message</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+        </tr>
+      </tbody>
+    </Table>
+    </div>
+    </>
 };
 
 export default Contact;

@@ -1,13 +1,11 @@
 import React from "react";
 import thumb from "../assets/images/thumb.png";
-import AboutTabs from "../Components/AboutTabs"
+import AboutTabs from "../Components/AboutTabs";
 
 const About = () => {
   return (
-
-  
   <div className="about">
-        <div className="about-container">
+         <div className="about-container">
           <div className="about-thumbnail">
             <img src={thumb} alt="digital" className="thumb-img" />
           </div>
@@ -21,8 +19,8 @@ const About = () => {
            </div>
           </div>
         </div>
+
       </div>
   )
 };
-
 export default About;   
