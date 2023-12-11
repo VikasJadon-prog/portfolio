@@ -21,9 +21,9 @@ const Header = () => {
        </div>
         <div className="navbar">
         <nav className="header-nav">
-          <ui className="header-Ui">
+          <ul className="header-Ui">
             <li >
-              <Link exact to="/" className="header-li">Home</Link>
+              <Link  to="/" className="header-li">Home</Link>
             </li>
             <li >
               <Link to="/about" className="header-li">About</Link>
@@ -40,7 +40,7 @@ const Header = () => {
             <li >
               <Link to="/contact" className="header-li">Contact</Link>
             </li>
-          </ui>
+          </ul>
         </nav>
         </div>
       </div>

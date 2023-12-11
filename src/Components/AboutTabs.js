@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
@@ -38,7 +38,7 @@ function a11yProps(index) {
   };
 }
 
-export default function BasicTabs() {
+export default function AboutTabs() {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -56,109 +56,115 @@ export default function BasicTabs() {
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0} className='customtab'>
-        <ui className="AboutTabs-CustomTabPanel-li-ui">
+   
+       <ul className="AboutTabs-CustomTabPanel-li-ui">
           <li className='AboutTabs-CustomTabPanel-li'>
             <a className='AboutTabs-CustomTabPanel-li-a' href='xyz'>User experience design
               <span className='AboutTabs-CustomTabPanel-li-a-span'> - UI/UX</span>
               <br />
             </a>
-            Delight the user and make it work.
+            <span>Delight the user and make it work.</span>
           </li>
           <li className='AboutTabs-CustomTabPanel-li'>
             <a className='AboutTabs-CustomTabPanel-li-a'href='xyz'>Web and user interface design
               <span className='AboutTabs-CustomTabPanel-li-a-span'> - Devlopment</span>
               <br />
             </a>
-            Websites, web experiences, ...
+            <span>Websites, web experiences, ...</span>
           </li>
           <li className='AboutTabs-CustomTabPanel-li'>
             <a className='AboutTabs-CustomTabPanel-li-a' href='xyz'>Interaction design
               <span className='AboutTabs-CustomTabPanel-li-a-span'> - Animation</span>
               <br />
             </a>
-            I like to move it move it.
+            <span>I like to move it move it.</span>
           </li>
 
-        </ui>
+        </ul>
+
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1} className='customtab'>
-        <ui>
+   
+       <ul className="AboutTabs-CustomTabPanel-li-ui">
           <li className='AboutTabs-CustomTabPanel-li'>
             <a className='AboutTabs-CustomTabPanel-li-a' href='xyz'>User experience design
-              <span className='AboutTabs-CustomTabPanel-li-a-span' > - UI/UX</span>
+              <span className='AboutTabs-CustomTabPanel-li-a-span'> - UI/UX</span>
               <br />
             </a>
-            Delight the user and make it work.
+            <span>Delight the user and make it work.</span>
           </li>
           <li className='AboutTabs-CustomTabPanel-li'>
-            <a className='AboutTabs-CustomTabPanel-li-a' href='xyz'>Web and user interface design
+            <a className='AboutTabs-CustomTabPanel-li-a'href='xyz'>Web and user interface design
               <span className='AboutTabs-CustomTabPanel-li-a-span'> - Devlopment</span>
               <br />
             </a>
-            Websites, web experiences, ...
+            <span>Websites, web experiences, ...</span>
           </li>
           <li className='AboutTabs-CustomTabPanel-li'>
             <a className='AboutTabs-CustomTabPanel-li-a' href='xyz'>Interaction design
               <span className='AboutTabs-CustomTabPanel-li-a-span'> - Animation</span>
               <br />
             </a>
-            I like to move it move it.
+            <span>I like to move it move it.</span>
           </li>
-
-        </ui>
+        </ul>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2} className='customtab'>
-        <ui>
+
+       <ul className="AboutTabs-CustomTabPanel-li-ui">
           <li className='AboutTabs-CustomTabPanel-li'>
-            <a className='AboutTabs-CustomTabPanel-li-a' href='xyz'>Awwwwards.Com
-              <span className='AboutTabs-CustomTabPanel-li-a-span'> - Winner</span>
+            <a className='AboutTabs-CustomTabPanel-li-a' href='xyz'>User experience design
+              <span className='AboutTabs-CustomTabPanel-li-a-span'> - UI/UX</span>
               <br />
             </a>
-            2019 - 2020
+            <span>Delight the user and make it work.</span>
           </li>
           <li className='AboutTabs-CustomTabPanel-li'>
-            <a className='AboutTabs-CustomTabPanel-li-a' href='xyz'>CSS design Awards
-              <span className='AboutTabs-CustomTabPanel-li-a-span'> - Winner</span>
+            <a className='AboutTabs-CustomTabPanel-li-a'href='xyz'>Web and user interface design
+              <span className='AboutTabs-CustomTabPanel-li-a-span'> - Devlopment</span>
               <br />
             </a>
-            2017 - 2018
+            <span>Websites, web experiences, ...</span>
           </li>
           <li className='AboutTabs-CustomTabPanel-li'>
-            <a className='AboutTabs-CustomTabPanel-li-a' href='xyz'>Design Nominees
-              <span className='AboutTabs-CustomTabPanel-li-a-span'> - site of the day</span>
+            <a className='AboutTabs-CustomTabPanel-li-a' href='xyz'>Interaction design
+              <span className='AboutTabs-CustomTabPanel-li-a-span'> - Animation</span>
               <br />
             </a>
-            2013- 2014
+            <span>I like to move it move it.</span>
           </li>
 
-        </ui>
+        </ul>
+
       </CustomTabPanel>
       <CustomTabPanel value={value} index={3} className='customtab'>
-        <ui>
+
+       <ul className="AboutTabs-CustomTabPanel-li-ui">
           <li className='AboutTabs-CustomTabPanel-li'>
-            <a className='AboutTabs-CustomTabPanel-li-a' href='xyz'>Sr. Front-end Engineer
-              <span className='AboutTabs-CustomTabPanel-li-a-span'> - Google</span>
+            <a className='AboutTabs-CustomTabPanel-li-a' href='xyz'>User experience design
+              <span className='AboutTabs-CustomTabPanel-li-a-span'> - UI/UX</span>
               <br />
             </a>
-            2018 - Current
+            <span>Delight the user and make it work.</span>
           </li>
           <li className='AboutTabs-CustomTabPanel-li'>
-            <a className='AboutTabs-CustomTabPanel-li-a' href='xyz'>Front-end Engineer
-              <span className='AboutTabs-CustomTabPanel-li-a-span'> - Microsoft</span>
+            <a className='AboutTabs-CustomTabPanel-li-a'href='xyz'>Web and user interface design
+              <span className='AboutTabs-CustomTabPanel-li-a-span'> - Devlopment</span>
               <br />
             </a>
-            2017 - 2018
+            <span>Websites, web experiences, ...</span>
           </li>
           <li className='AboutTabs-CustomTabPanel-li'>
-            <a className='AboutTabs-CustomTabPanel-li-a' href='xyz'>Software Engineer
-              <span className='AboutTabs-CustomTabPanel-li-a-span'> - Alibaba</span>
+            <a className='AboutTabs-CustomTabPanel-li-a' href='xyz'>Interaction design
+              <span className='AboutTabs-CustomTabPanel-li-a-span'> - Animation</span>
               <br />
             </a>
-            2013- 2014
+            <span>I like to move it move it.</span>
           </li>
 
-        </ui>
-      </CustomTabPanel>
+        </ul>
+
+      </CustomTabPanel>  
     </Box>
   );
 }
