@@ -1,89 +1,121 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import aboutContact from '../assets/images/aboutContact.jpg';
 import Table from 'react-bootstrap/Table';
+import { AiFillDelete } from "react-icons/ai";
+import { FaEdit } from "react-icons/fa";
 
+// import { Update } from "@mui/icons-material";
 
 const Contact = () => {
-  const [update, setUpdate] = useState([])
   const [formData, setFormData] = useState({
     fname: "",
     email: "",
     subject: "",
     message: ""
   });
-  const [err, setErr] = useState({})
+  const [fnameErr, setFnameErr] = useState('')
+  const [emailErr, setEmailErr] = useState('')
+  const [subjectErr, setSubjecteErr] = useState('')
+  const [messageErr, setMessageErr] = useState('')
+  const [table, setTable] = useState([])
+  const [edit, setEdit] = useState(true)
+  const [editItem, setEditItem] = useState(null)
+
+
+  let ret = JSON.parse(localStorage.getItem("product"))
+  useEffect(() => {
+
+    if (ret) {
+      setTable(ret);
+    }
+  }, [])
+
   const handleInput = (e) => {
     const { name, value } = e.target;
-    setFormData((prevFormData) => ({...prevFormData, [name]: value }));
-
+    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
   }
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   setErrors(validateValues(inputFields));
-  //   setSubmitting(true);
-  // };
-  //VALIDATION
-  let result = true;
-  const validation =()=>{
-    let err={}
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    let result = true;
+
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-  if (formData.fname.length == 0) {
-    err.fname="invalid";
-    result = false
-  }
-  else if (formData.fname.length > 10) {
-   err.fname="Not More Then 10 Words"
-    result = false
-  }
-  if (formData.email.length == 0) {
-  err.email="invalid"
-    result = false
-  }
-  else if (!formData.email.match(regex)) {
-    err.email="not type of email"
-    result = false;
-  }
 
-  if (formData.subject.length == 0) {
-    err.subject="invalid"
-    result = false;
-  }
-  else if (formData.subject.length > 50) {
-    err.subject="Not More Then 50 Words"
-    result = false;
-  }
-  if (formData.message.length == 0) {
-    err.message="invalid"
-    result = false
+    if (formData.fname.length === 0) {
+      setFnameErr("invalid")
+      result = false
+    }
+    else if (formData.fname.length > 20) {
+      setFnameErr("Not More Then 10 Words")
+      result = false
+    }
+    else {
+      setFnameErr(" ")
+    }
+    if (!formData.email.match(regex)) {
+      setEmailErr("invalid")
+      result = false
+    }
+    else {
+      setEmailErr("")
+    }
+    if (formData.subject.length > 50) {
+      setSubjecteErr("Not More Then 50 Words")
+      result = false;
+    }
+    else if (formData.subject.length === 0) {
+      setSubjecteErr("Invalid")
+      result = false;
+    }
+    else {
+      setSubjecteErr(" ")
+    }
+    if (formData.message.length > 500) {
+      setMessageErr("Not More Then 500")
+      result = false
+    }
+    else if (formData.message.length < 0) {
+      setMessageErr("Not Less Then 5 Words")
+      result = false
+    }
+    else {
+      setMessageErr(" ")
+    }
 
-  }
-  else if (formData.message.length > 500) {
-    err.message="Not More Then 500 "
-    result = false
-  }
-return err;
-
-  }
-
-  // if (result==true) {
-  //   const handleSubmit = (e) => {
-  //     e.preventDefault()
-      
-  //     console.log(update)
-  //     setUpdate((prevalue) => ([...prevalue, formData]));
-  //     setFormData({ fname: "", email: "", subject: "", message: "" })
-  //   }
-
-  // }
-  
-    const handleSubmit = (e) => {
-      e.preventDefault()
-      setErr(validation(formData))
-      console.log(update)
-      setUpdate((prevalue) => ([...prevalue, formData]));
+    if (formData && !edit) {
+      if (result === true) {
+        table[editItem] = formData;
+        localStorage.setItem("product", JSON.stringify(table));
+        setEdit(true);
+        setFormData({ fname: "", email: "", subject: "", message: "" })
+        setEditItem(null)
+      }
+    }
+    else {
+      setTable((prevalue) => ([...prevalue, formData]))
       setFormData({ fname: "", email: "", subject: "", message: "" })
     }
+  }
+  const handleDelete = (i, e) => {
+    setTable(table.filter((e, index) => index !== i))
+  }
+  const handleEdit = (i, e) => {
+    let temp = table.find((v, index) => index === i)
+    console.log(temp)
+    setEdit(false);
+    setFormData(temp);
+    setEditItem(i)
+
+  }
+  const cancle =( ) =>{
+    setEdit(true);
+    setFormData({ fname: "", email: "", subject: "", message: "" })
+  }
+
+  useEffect(() => {
+    localStorage.setItem("product", JSON.stringify(table));
+  }, [table])
+
   return <>
     <div className="contact">
       <div className="contact-form">
@@ -95,27 +127,28 @@ return err;
         <div >
           <form className="form" onSubmit={handleSubmit}>
             <input type="text" name="fname" value={formData.fname} onChange={handleInput} id="input01" className="formInput" placeholder="Your Name*" />
-            {err.fname ? <p className="err">{err.fname}</p> : null}
+            {fnameErr ? <p className="err">{fnameErr}</p> : null}
             <input type="text" name="email" value={formData.email} onChange={handleInput}
               id="input02" className="formInput" placeholder="Your Email*" />
-            {err.email ? <p className="err">{err.email}</p> : null}
+            {emailErr ? <p className="err">{emailErr}</p> : null}
             <input type="text" name="subject" value={formData.subject} onChange={handleInput}
               id="input03"
               className="formInput" placeholder="Write a Subject" />
-            {err.subject ? <p className="err">{err.subject}</p> : null}
+            {subjectErr ? <p className="err">{subjectErr}</p> : null}
             <input type="text" name="message" value={formData.message} onChange={handleInput}
               id="input04" className="formInput4" placeholder="Your Message" />
-            {err.message ? <p className="err">{err.message}</p> : null}
-            <button type="submit" value="submit" id="submit"  >Submit</button>
+            {messageErr ? <p className="err">{messageErr}</p> : null}
+            {edit ? <button type="submit" value="submit" id="submit">Submit</button> : <div style={{ display: "flex", columnGap: "1em" }}><button type="submit" value="submit" className="btn btn-outline-success">Save</button>
+              <button type="button" className="btn btn-outline-danger" onClick={cancle}>Cancle</button></div>
+            }
           </form>
         </div>
       </div>
       <div className="contactimgdiv">
         <img className="contactimg" src={aboutContact} alt="contactimg" />
       </div>
-
     </div>
-    <div className="form">
+    <div className="formTable">
       <Table striped bordered hover variant="dark">
         <thead>
           <tr>
@@ -124,16 +157,25 @@ return err;
             <th>Your email</th>
             <th>Subject</th>
             <th>Message</th>
+            <th>Action</th>
+
           </tr>
         </thead>
-        <tbody>
-          {update.map((data, i) => (
+        <tbody className="tbody">
+          {table.map((data, i) => (
             <tr key={i}>
               <td>{i + 1}</td>
               <td>{data.fname}</td>
               <td>{data.email}</td>
               <td>{data.subject}</td>
               <td>{data.message}</td>
+              <td >
+                <div className="tableTdBtn">
+                  <button type="button" className="btn btn-outline-info" onClick={() => { handleDelete(i) }}><AiFillDelete /></button>
+                  <button type="button" className="btn btn-outline-warning" onClick={() => { handleEdit(i) }}><FaEdit /></button>
+                </div>
+              </td>
+
             </tr>
           ))}
         </tbody>
