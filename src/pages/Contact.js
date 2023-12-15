@@ -3,6 +3,10 @@ import aboutContact from '../assets/images/aboutContact.jpg';
 import Table from 'react-bootstrap/Table';
 import { AiFillDelete } from "react-icons/ai";
 import { FaEdit } from "react-icons/fa";
+import { useCookies } from "react-cookie";
+import Cookies from 'js-cookie';
+
+
 
 // import { Update } from "@mui/icons-material";
 
@@ -19,16 +23,21 @@ const Contact = () => {
   const [messageErr, setMessageErr] = useState('')
   const [table, setTable] = useState([])
   const [edit, setEdit] = useState(true)
-  const [editItem, setEditItem] = useState(null)
+  const [editItem, setEditItem] = useState(null);
+  const [cookies, setCookie] = useCookies([])
+  const [item,setItem] =useState([])
 
 
-  let ret = JSON.parse(localStorage.getItem("product"))
-  useEffect(() => {
+  // let ret = JSON.parse(localStorage.getItem("product"))
+  // useEffect(() => {
 
-    if (ret) {
-      setTable(ret);
-    }
-  }, [])
+  //   if (ret) {
+  //     setTable(ret);
+  //   }
+  // }, [])
+  useEffect(()=>{
+   setTable(JSON.parse(sessionStorage.getItem('product')))
+  },[])
 
   const handleInput = (e) => {
     const { name, value } = e.target;
@@ -85,15 +94,29 @@ const Contact = () => {
     if (formData && !edit) {
       if (result === true) {
         table[editItem] = formData;
-        localStorage.setItem("product", JSON.stringify(table));
+        // localStorage.setItem("product", JSON.stringify(table));
+        setCookie('user', [...table,formData], { path: '/' });
+        // console.log(cookies.get("user"))
         setEdit(true);
         setFormData({ fname: "", email: "", subject: "", message: "" })
         setEditItem(null)
       }
     }
     else {
-      setTable((prevalue) => ([...prevalue, formData]))
-      setFormData({ fname: "", email: "", subject: "", message: "" })
+      if (result === true) {
+      
+        setTable((prevalue) => ([...prevalue, formData]))
+        // setCookie('user',[formData])
+        // setCookie('user',[...table,formData] );
+        // setTable(Cookies)
+        // let  g =cookies.get('user')
+        // console.log(g)
+        // console.log(cookies)
+        sessionStorage.setItem('product',JSON.stringify(table))
+       
+        
+        setFormData({ fname: "", email: "", subject: "", message: "" });
+      }
     }
   }
   const handleDelete = (i, e) => {
@@ -107,14 +130,18 @@ const Contact = () => {
     setEditItem(i)
 
   }
-  const cancle =( ) =>{
+  const cancle = () => {
     setEdit(true);
-    setFormData({ fname: "", email: "", subject: "", message: "" })
+    setFormData({ fname: "", email: " ", subject: " ", message: "" })
   }
 
-  useEffect(() => {
-    localStorage.setItem("product", JSON.stringify(table));
-  }, [table])
+  // useEffect(() => {
+  //   // localStorage.setItem("product", JSON.stringify(table));
+  // }, [table])
+  
+useEffect(()=>{
+ 
+},[table])
 
   return <>
     <div className="contact">
@@ -175,7 +202,6 @@ const Contact = () => {
                   <button type="button" className="btn btn-outline-warning" onClick={() => { handleEdit(i) }}><FaEdit /></button>
                 </div>
               </td>
-
             </tr>
           ))}
         </tbody>
