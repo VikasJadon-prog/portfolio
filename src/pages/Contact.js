@@ -5,7 +5,31 @@ import Table from 'react-bootstrap/Table';
 
 const Contact = () => {
 
-const [product ,setProduct] = useState([])
+const [data,setData] = useState({
+  name:"",
+  email:"",
+  subject:"",
+  message:""
+
+});
+
+let name, value;
+
+const handleInput  = (e) =>{
+  e.preventDefault();
+
+  // const product  = () =>{
+  //   setProducts()
+  // }
+  name = e.target.name;
+  value=e.target.value;
+
+  setData({...data,[name]:value})
+
+  console.log(data)
+  
+
+}
 
 
   return <>
@@ -17,11 +41,11 @@ const [product ,setProduct] = useState([])
           <a className="contact-content-a" href="xyz">01923 088574</a> or email: <a className="contact-content-a" href="xyz">admin@example.com</a></p>
       </div>
       <div >
-        <form className="form">
-        <input type="text" name="name" id="item01" placeholder="Your Name*" />
-        <input type="text" name="email" id="item01" placeholder="Your Email*" />
-          <input type="text" name="subject" id="item01" placeholder="Write a Subject" />
-          <input type="text" name="message" id="item04" placeholder="Your Message" />
+        <form className="form" onSubmit={handleInput} >
+        <input type="text" name="name" value={data.name} onChange={handleInput} id="item01" placeholder="Your Name*" />
+        <input type="text" name="email" value={data.email} onChange={handleInput} id="item01" placeholder="Your Email*" />
+          <input type="text" name="subject" value={data.subject} onChange={handleInput} id="item01" placeholder="Write a Subject" />
+          <input type="text" name="message" value={data.message} onChange={handleInput} id="item04" placeholder="Your Message" />
           <button type="submit" value="submit" id="submit">Submit</button>
         </form>
       </div>
