@@ -1,6 +1,6 @@
 import React from "react";
 import thumb from "../assets/images/thumb.png";
-import AboutTabs from "../Components/AboutTabs";
+// import AboutTabs from "../Components/AboutTabs";
 
 const About = () => {
   return (
@@ -15,7 +15,7 @@ const About = () => {
               <p className="about-description">There are many variations of passages of Lorem Ipsum available, but the majority have suffered  alteration in some form, by injected humour, or randomised words which dont look even slightly believable. If you are going to use a passage of Lorem Ipsum,</p>
             </div>
            <div>
-           <AboutTabs/>
+           {/* <AboutTabs/> */}
            </div>
           </div>
         </div>
