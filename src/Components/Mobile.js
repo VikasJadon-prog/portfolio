@@ -26,7 +26,7 @@ const Mobile = () => {
                 <FaBars onClick={( ) => {
                     setIsMenuOpen(true);
                 }} className='fabars' />
-                <div className={isMenuOpen ? "open" : " "} id='mobile_menu_wrap'>
+                <div className={isMenuOpen ? "open" : "close"} id='mobile_menu_wrap'>
                     <RxCross2 onClick={() => {
                         setIsMenuOpen(false);
 
