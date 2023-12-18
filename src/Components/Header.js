@@ -4,12 +4,13 @@ import logo from "../assets/images/logo.png"
 import { Link } from "react-router-dom";
 import RightHeader from "../Components/RightHeader";
 import Mobile from "./Mobile";
+
 const Header = () => {
   
  
   return (
     <>
-    <div className="App-header">
+   <div className="App-header">
       <div className="app-header-row">
       <div className="Left-header">
        <div className="logo">
@@ -50,6 +51,7 @@ const Header = () => {
       </div>
     </div>
     <Mobile/>
+
     </>
   )
 }

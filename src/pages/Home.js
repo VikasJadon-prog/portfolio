@@ -5,6 +5,9 @@ import Portifolio from '../pages/Portifolio';
 import Blog from '../pages/Blog';
 import Contact from '../pages/Contact';
 import Footer from '../Components/Footer';
+import RegisterUser from '../Components/RegisterUser';
+import { Routes,Route } from 'react-router-dom';
+
 const Home = () => {
   return (
     <>
@@ -22,7 +25,6 @@ const Home = () => {
      </div>
      </div>
     <div>
-
     <About />
      <Service />
      <Portifolio />
@@ -34,4 +36,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Home;

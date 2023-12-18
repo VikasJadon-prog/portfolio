@@ -1,6 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+// import { useState } from 'react';
 
 const RightHeader = () => {
+    
+
     return (
         <div className='right-Header'>
             <div className='social-Main'>
@@ -28,7 +32,7 @@ const RightHeader = () => {
                 </ul>
             </div >
             <div className='buy-btn'>
-            <span>BUY NOW</span>
+            <Link  to="/register" className="head-regi-li" >Register/Login</Link>
             </div>
         </div>
     )
