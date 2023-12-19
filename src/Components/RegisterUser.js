@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
-import aboutContact from '../assets/images/aboutContact.jpg';
-import { FaUser } from "react-icons/fa";
+import aboutContact from '..//assets/images/aboutContact.jpg';
+// import { FaUser } from "react-icons/fa";
+import { useEffect } from 'react';
+import { useCookies } from 'react-cookie';
+
 const RegisterUser = () => {
     const [regData, setRegData] = useState({
         fname: "",
@@ -9,55 +12,47 @@ const RegisterUser = () => {
     })
     const [regDataArr, setRegDataArr] = useState([]);
     const [fnameErr, setFnameErr] = useState('');
-  const [emailErr, setEmailErr] = useState('');
-  const [passwordErr, setPasswordErr] = useState('');
-  const [result, setResult] =useState(true)
+    const [emailErr, setEmailErr] = useState('');
+    const [passwordErr, setPasswordErr] = useState('');
+    const [result, setResult] = useState(true);
+    const [cookies, setCookie] = useCookies(['user']);
+    useEffect(() => {
+        const cookiesData = cookies.user || [];
+        setRegDataArr(cookiesData);
+    }, [cookies.user]);
     const handleRegInput = (e) => {
         const { name, value } = e.target;
         setRegData((preRegData) => ({ ...preRegData, [name]: value }))
     }
     const handleReg = (e) => {
         e.preventDefault();
-
         const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-    
         if (regData.fname.length === 0) {
-          setFnameErr("invalid")
-          setResult(false)
+            setFnameErr("invalid")
+            setResult(false)
         }
         else if (regData.fname.length > 20) {
-          setFnameErr("Not More Then 10 Words")
-          setResult(false)
-        }
-        else {
-          setFnameErr(" ")
+            setFnameErr("Not More Then 10 Words")
+            setResult(false)
         }
         if (!regData.email.match(regex)) {
-          setEmailErr("invalid")
-          setResult(false)
-        }
-        else {
-          setEmailErr("")
+            setEmailErr("invalid")
+            setResult(false)
         }
         if (regData.password.length === 0) {
             setPasswordErr("invalid")
             setResult(false)
-          }
-          else if (regData.password.length > 20) {
+        }
+        else if (regData.password.length > 20) {
             setPasswordErr("Not More Then 20 Words")
             setResult(false)
-          }
-          else {
-            setPasswordErr(" ")
-          }
-          if(result===true){
-            const re=[...regDataArr,regData]
-            setRegDataArr(re)
-             console.log(re)
-            setRegData({fname: "",email: "",password: ""});
-            
-            
-    }
+        }
+        if (result) {
+            const re = [...regDataArr, regData]
+            setCookie('user', re, { path: '/' });
+            setRegData(re)
+            setRegData({ fname: "", email: "", password: "" });
+        }
     }
     return (
         <section className="vh-100" id='regi-sec'>
@@ -96,7 +91,7 @@ const RegisterUser = () => {
                                                 </div>
                                             </div>
                                             <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                                <button type="submit"  value="submit" className="btn btn-primary btn-lg" id='reg-btn'>Register</button>
+                                                <button type="submit" value="submit" className="btn btn-primary btn-lg" id='reg-btn'>Register</button>
                                             </div>
                                             <p className="text-center text mt-5 mb-0 " id='regForm-p'>Have already an account? <a href="#!"
                                                 className="fw-bold"><u>Login here</u></a></p>
@@ -106,7 +101,6 @@ const RegisterUser = () => {
                                         <img className="contactimg" src={aboutContact} alt="contactimg" />
                                         {/* <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
                     className="img-fluid" alt="Sample image"/> */}
-
                                     </div>
                                 </div>
                             </div>

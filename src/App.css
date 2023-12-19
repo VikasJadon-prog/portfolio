@@ -1003,7 +1003,6 @@
   background-color: transparent;
   color: rgba(198, 201, 216, .75);
   border: 2px solid hsla(0, 0%, 100%, .2);
-
 }
 
 #regi-sec .card form input ::placeholder {
@@ -1032,8 +1031,78 @@
 #regForm p a:hover {
   transform: translateY(-4px);
 }
+.gradient-custom-2 {
+  /* fallback for old browsers */
+  background: #fccb90;
+  
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+  
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+  }
 
+  .col-xl-5 {
+    flex: 0 0 auto;
+    width: 100%;
+} 
+.col-md-5 {
+  flex: 0 0 auto;
+  width: 50%;
+}
+  #login-sec{
+    background-color:black ;
+  }
+  #login-sec h1{
+    color:#cccfdd;
+  }
+  #login-sec h3{
+    color: rgba(198, 201, 216, .75);
+  }
+  #login-sec label{
+    color: rgba(198, 201, 216, .75);
+  }
+  #login-sec .card{
+    background-color: #191919
+  }
+  #login-sec .card input{
+    background-color: transparent;
+    color:whitesmoke;
+    border: 2px solid hsla(0, 0%, 100%, .2);
+  }
+  #login-sec .card input ::placeholder{
+    color:white;
+  }
+  #login form label
+  {
+    color: wheat;
+  }
+  #login form p{
+    color: wheat;
+  }
+  #login-p{
+    color: wheat;
+  }
+#login-btn button{
+  width: 40%;
+    color: #fff;
+    background: #f6004c;
+    cursor: pointer;
+    letter-spacing: .5px;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: .3s;
+    border: 2px solid #f9004d;
+}
+#login-btn button:hover{
+  transform: translateY(-6px);
+  background: transparent;
+  border: 2px solid #f9004d;
+}
 
+#login-btn a{
+  color: wheat;
+}
 @media screen and (min-width: 1600px) and (max-width:1950px) {
   .home {
     width: 100%;
@@ -1049,8 +1118,11 @@
   .about-container {
     width: 80%;
   }
-
 }
+/* @media (min-width: 1200px)
+{
+  
+} */
 
 @media screen and (min-width: 992px) and (max-width: 1599px) {
   .home {
@@ -1239,6 +1311,11 @@
     display: none;
 
   }
+
+  .col-xl-5 {
+    flex: 0 0 auto;
+    width: 100%;
+} 
 }
 
 @media screen and (max-width:991px) {
@@ -1509,7 +1586,21 @@
 
 
 }
-
+@media (min-width: 768px) {
+  .gradient-form {
+  height: 100vh ;
+  }
+  .col-md-5 {
+    flex: 0 0 auto;
+    width: 100%;
+}
+  }
+  @media (min-width: 769px) {
+  .gradient-custom-2 {
+  border-top-right-radius: .3rem;
+  border-bottom-right-radius: .3rem;
+  }
+  }
 
 @media screen and (min-width:626px)and (max-width:849px) {
   #mobile_menu_wrap svg {
