@@ -6,15 +6,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import RegisterUser from "./Components/RegisterUser";
 import Main from "./pages/Main";
 import Login from "./Components/Login";
+import Protected from "./Components/Protected";
 function App() {
   
   return (
     
     <div className="App" >
-
       <BrowserRouter>
-   <Main/>
-   <Login/> 
+      <Routes>
+      <Route path="/" exact element={<Protected Component={Main} />}/>
+      <Route path="/login"  element={<Login/>} />
+      <Route path="/register" element={<RegisterUser/>} />
+      </Routes>
       </BrowserRouter>
       </div>
   );

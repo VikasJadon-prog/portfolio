@@ -11,9 +11,6 @@ import About from "./About";
 // import ScrollTop from "./Components/ScrollTop";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import RegisterUser from '../Components/RegisterUser';
-
-
-
 const Main = () => {
 
   return (
@@ -22,13 +19,12 @@ const Main = () => {
           <Routes>
             <Route path="/" exact element={<Home />} />
             <Route path="/about"  element={<About />} />
-            <Route path="/service" e element={<Service />} />
+            <Route path="/service" element={<Service />} />
             <Route path="/Portifolio" element={<Portifolio />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/contact" element={<Contact />} />
             <Route path='/register' element={<RegisterUser/>}/>
           </Routes>
-          
     </>
 
   )

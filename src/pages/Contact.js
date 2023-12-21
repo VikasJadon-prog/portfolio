@@ -105,19 +105,16 @@ const Contact = () => {
     // sessionStorage.setItem('user', JSON.stringify(updatedTable));
     setTable(updatedTable);
   }
-
   const handleEdit = (i) => {
     const temp = table.find((e, index) => index === i);
     setEdit(false);
     setFormData(temp);
     setEditItem(i);
   }
-
   const cancel = () => {
     setEdit(true);
     setFormData({ fname: "", email: "", subject: "", message: "" });
   }
-
   return (
     <>
       <div className="contact">

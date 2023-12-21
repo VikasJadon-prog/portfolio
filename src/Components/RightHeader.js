@@ -1,10 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 // import { useState } from 'react';
-
-const RightHeader = () => {
+import { FiLogOut } from "react-icons/fi";
+const RightHeader = ({props}) => {
     
-
+const logOut=()=>{
+    localStorage.removeItem("token");
+}
     return (
         <div className='right-Header'>
             <div className='social-Main'>
@@ -32,8 +34,9 @@ const RightHeader = () => {
                 </ul>
             </div >
             <div className='buy-btn'>
-            <Link  to="/register" className="head-regi-li" >Register/Login</Link>
+            
             </div>
+            <FiLogOut fill='black' color= 'white' size="30px" onClick={logOut}/> 
         </div>
     )
 }

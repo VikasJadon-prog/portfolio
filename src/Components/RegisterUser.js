@@ -3,6 +3,8 @@ import aboutContact from '..//assets/images/aboutContact.jpg';
 // import { FaUser } from "react-icons/fa";
 import { useEffect } from 'react';
 import { useCookies } from 'react-cookie';
+import { Link } from "react-router-dom";
+import logo1 from '../assets/images/logo.png'
 
 const RegisterUser = () => {
     const [regData, setRegData] = useState({
@@ -16,6 +18,7 @@ const RegisterUser = () => {
     const [passwordErr, setPasswordErr] = useState('');
     const [result, setResult] = useState(true);
     const [cookies, setCookie] = useCookies(['user']);
+    // const [get, setGet] = useState('')
     useEffect(() => {
         const cookiesData = cookies.user || [];
         setRegDataArr(cookiesData);
@@ -50,9 +53,13 @@ const RegisterUser = () => {
         if (result) {
             const re = [...regDataArr, regData]
             setCookie('user', re, { path: '/' });
+            // const cookiesData = [...user, regData]
+            // setGet(cookiesData)
             setRegData(re)
             setRegData({ fname: "", email: "", password: "" });
         }
+
+
     }
     return (
         <section className="vh-100" id='regi-sec'>
@@ -63,9 +70,12 @@ const RegisterUser = () => {
                             <div className="card-body p-md-5">
                                 <div className="row justify-content-center">
                                     <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-                                        <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
-
+                                        <div className="text-center mb-1">                                     <img src={logo1}
+                                            style={{ width: " 75px" }} alt="logo" />
+                                            <h1 className=" fw-bold mt-1 mb-4 pb-0" >Try Do</h1>
+                                        </div>
                                         <form className="mx-1 mx-md-4" id='regForm' onSubmit={handleReg}>
+                                            <h3 className="text-center">Sign Up</h3>
                                             <div className="d-flex flex-row align-items-center mb-4">
                                                 <i className="fas fa-user fa-lg me-3 fa-fw"></i>
                                                 <div className="form-outline flex-fill mb-0">
@@ -94,7 +104,8 @@ const RegisterUser = () => {
                                                 <button type="submit" value="submit" className="btn btn-primary btn-lg" id='reg-btn'>Register</button>
                                             </div>
                                             <p className="text-center text mt-5 mb-0 " id='regForm-p'>Have already an account? <a href="#!"
-                                                className="fw-bold"><u>Login here</u></a></p>
+                                                className="fw-bold"></a>
+                                                <Link to="/login" ><u>Login here</u></Link></p>
                                         </form>
                                     </div>
                                     <div className="col-md-10 col-lg-6 col-xl-6 d-flex align-items-center order-1 order-lg-2">
