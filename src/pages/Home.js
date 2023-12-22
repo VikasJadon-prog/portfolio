@@ -5,8 +5,7 @@ import Portifolio from '../pages/Portifolio';
 import Blog from '../pages/Blog';
 import Contact from '../pages/Contact';
 import Footer from '../Components/Footer';
-import RegisterUser from '../Components/RegisterUser';
-import { Routes,Route } from 'react-router-dom';
+
 
 const Home = () => {
   return (

@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import aboutContact from '..//assets/images/aboutContact.jpg';
-// import { FaUser } from "react-icons/fa";
 import { useEffect } from 'react';
 import { useCookies } from 'react-cookie';
 import { Link } from "react-router-dom";
-import logo1 from '../assets/images/logo.png'
+import logo1 from '../assets/images/logo.png';
+import { FaUser } from "react-icons/fa";
+import { IoEyeOff } from "react-icons/io5";
+import { IoMdEye } from "react-icons/io";
+import { RiLockPasswordFill } from "react-icons/ri";
+import { MdEmail } from "react-icons/md";
+
 
 const RegisterUser = () => {
     const [regData, setRegData] = useState({
@@ -18,11 +23,14 @@ const RegisterUser = () => {
     const [passwordErr, setPasswordErr] = useState('');
     const [result, setResult] = useState(true);
     const [cookies, setCookie] = useCookies(['user']);
-    // const [get, setGet] = useState('')
+    const [submitted, setSubmitted] = useState(false)
+    const [signUpErr, setSignUpErr] = useState(false)
+    const [eye, setEye] = useState(true)
     useEffect(() => {
         const cookiesData = cookies.user || [];
         setRegDataArr(cookiesData);
-    }, [cookies.user]);
+
+    }, [cookies.user, setRegDataArr]);
     const handleRegInput = (e) => {
         const { name, value } = e.target;
         setRegData((preRegData) => ({ ...preRegData, [name]: value }))
@@ -51,15 +59,24 @@ const RegisterUser = () => {
             setResult(false)
         }
         if (result) {
-            const re = [...regDataArr, regData]
-            setCookie('user', re, { path: '/' });
-            // const cookiesData = [...user, regData]
-            // setGet(cookiesData)
-            setRegData(re)
-            setRegData({ fname: "", email: "", password: "" });
+
+
+            let foundUser = regDataArr.find((element) => element.email === regData.email)
+            if (foundUser) {
+                setSignUpErr(true)
+            }
+            else {
+                const re = [...regDataArr, regData]
+                setCookie('user', re, { path: '/' });
+                setRegData(re)
+                setRegData({ fname: "", email: "", password: "" });
+                setSubmitted(true);
+                setSignUpErr(false)
+                setTimeout(() => {
+                    setSubmitted(false)
+                }, 1200);
+            }
         }
-
-
     }
     return (
         <section className="vh-100" id='regi-sec'>
@@ -70,42 +87,59 @@ const RegisterUser = () => {
                             <div className="card-body p-md-5">
                                 <div className="row justify-content-center">
                                     <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-                                        <div className="text-center mb-1">                                     <img src={logo1}
-                                            style={{ width: " 75px" }} alt="logo" />
+                                        <div className="text-center mb-1">
+                                            <img src={logo1} className='login-logo'
+                                                style={{ width: "75px" }} alt="logo" />
                                             <h1 className=" fw-bold mt-1 mb-4 pb-0" >Try Do</h1>
                                         </div>
                                         <form className="mx-1 mx-md-4" id='regForm' onSubmit={handleReg}>
                                             <h3 className="text-center">Sign Up</h3>
-                                            <div className="d-flex flex-row align-items-center mb-4">
-                                                <i className="fas fa-user fa-lg me-3 fa-fw"></i>
+                                            {submitted && <p className='succ text-center         '>Account Created</p>}
+                                            <div className="d-flex flex-row align-items-center mb-3">
+
                                                 <div className="form-outline flex-fill mb-0">
                                                     <label className="form-label">Your Name</label>
-                                                    <input type="name" name="fname" value={regData.fname} onChange={handleRegInput} className="form-control" placeholder='Full Name' />
+
+                                                    <div className='loginputs'>
+                                                        <FaUser />
+                                                        <input type="name" name="fname" value={regData.fname} onChange={handleRegInput} className="form-control" placeholder='Full Name' />
+                                                    </div>
                                                     {fnameErr ? <p className="err">{fnameErr}</p> : null}
                                                 </div>
                                             </div>
-                                            <div className="d-flex flex-row align-items-center mb-4">
-                                                <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                            <div className="d-flex flex-row align-items-center mb-3">
                                                 <div className="form-outline flex-fill mb-0">
                                                     <label className="form-label" >Your Email</label>
-                                                    <input type="email" name="email" value={regData.email} onChange={handleRegInput} id="form3Example3c" className="form-control" placeholder='Email' />
+
+                                                    <div className='loginputs'>
+                                                        <MdEmail
+                                                            size="24px" />
+                                                        <input type="email" name="email" value={regData.email} onChange={handleRegInput} id="form3Example3c" className="form-control" placeholder='Email' />
+                                                    </div>
                                                     {emailErr ? <p className="err">{emailErr}</p> : null}
                                                 </div>
                                             </div>
                                             <div className="d-flex flex-row align-items-center mb-4">
-                                                <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
+
                                                 <div className="form-outline flex-fill mb-0">
-                                                    <label className="form-label" >Password</label>
-                                                    <input type="password" name="password" value={regData.password} onChange={handleRegInput} className="form-control" placeholder='Password' />
+                                                    <label className="form-label">Password</label>
+
+                                                    <div className='loginputs'>
+                                                        <RiLockPasswordFill size="24px" />
+                                                        <input type={eye ? "password" : "text"} name="password" value={regData.password} onChange={handleRegInput} className="form-control" placeholder='Password' />
+                                                        <span >{eye ? <IoMdEye onClick={() => setEye(false)} /> : <IoEyeOff onClick={() => setEye(true)} />
+                                                        }</span>
+                                                    </div>
                                                     {passwordErr ? <p className="err">{passwordErr}</p> : null}
+
                                                 </div>
                                             </div>
-                                            <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                                <button type="submit" value="submit" className="btn btn-primary btn-lg" id='reg-btn'>Register</button>
+                                            <div className="text-center pt-1 mb-1 pb-1" id="login-btn">
+                                                {signUpErr && <p className="err">Email Already Registered</p>}
+                                                <button className="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit" value="submit">Sign Up</button>
                                             </div>
-                                            <p className="text-center text mt-5 mb-0 " id='regForm-p'>Have already an account? <a href="#!"
-                                                className="fw-bold"></a>
-                                                <Link to="/login" ><u>Login here</u></Link></p>
+                                            <p className="text-center text mt-2 mb-0 " id='regForm-p'>Have already an account?
+                                                <Link to="/login"><u >Login here</u></Link></p>
                                         </form>
                                     </div>
                                     <div className="col-md-10 col-lg-6 col-xl-6 d-flex align-items-center order-1 order-lg-2">

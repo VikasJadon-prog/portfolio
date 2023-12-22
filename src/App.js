@@ -14,7 +14,7 @@ function App() {
     <div className="App" >
       <BrowserRouter>
       <Routes>
-      <Route path="/" exact element={<Protected Component={Main} />}/>
+      <Route path="*" element={<Protected Component={Main} />}/>
       <Route path="/login"  element={<Login/>} />
       <Route path="/register" element={<RegisterUser/>} />
       </Routes>

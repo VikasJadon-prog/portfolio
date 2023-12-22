@@ -1,19 +1,28 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-// import { useState } from 'react';
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate } from "react-router-dom";
 import { FiLogOut } from "react-icons/fi";
-const RightHeader = ({props}) => {
-    
-const logOut=()=>{
-    localStorage.removeItem("token");
-}
+const RightHeader = () => {
+    const [toggle, setToggle] = useState(true);
+    const navigate = useNavigate();
+   
+    const logOut=()=> {
+        localStorage.removeItem('token')
+        navigate('/login');
+        setToggle(false);
+    }
+    // useEffect(()=>{
+    //     let logout=localStorage.getItem('token')
+    //     if(logout){
+    //         navigate('/login')
+    //     }
+    // },[navigate])
     return (
         <div className='right-Header'>
             <div className='social-Main'>
                 <ul className='social-Main-Ui'>
                     <li className='social-Main-Ui-li'>
                         <a href='https://www.facebook.com/' className='social-Main-Ui-li-a' >
-                            <svg xmlns="http://www.w3.org/2000/svg"  width="16" height="16" fill='#fff' viewBox="0 0 320 512"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill='#fff' viewBox="0 0 320 512"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z" /></svg>
                         </a>
                     </li>
                     <li className='social-Main-Ui-li' >
@@ -32,11 +41,10 @@ const logOut=()=>{
                         </a>
                     </li>
                 </ul>
-            </div >
-            <div className='buy-btn'>
-            
             </div>
-            <FiLogOut fill='black' color= 'white' size="30px" onClick={logOut}/> 
+            {toggle ?
+                <FiLogOut fill='black' color='white' size="30px" className='ml-50' onClick={logOut} /> : <div className='buy-btn'><Link to="/register" ><u>Sign Up</u></Link>
+                </div>}
         </div>
     )
 }
