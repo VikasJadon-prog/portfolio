@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { Link, useNavigate } from "react-router-dom";
 import { FiLogOut } from "react-icons/fi";
 const RightHeader = () => {
@@ -6,16 +6,17 @@ const RightHeader = () => {
     const navigate = useNavigate();
    
     const logOut=()=> {
-        localStorage.removeItem('token')
+        localStorage.removeItem('token');
         navigate('/login');
         setToggle(false);
     }
-    // useEffect(()=>{
-    //     let logout=localStorage.getItem('token')
-    //     if(logout){
-    //         navigate('/login')
-    //     }
-    // },[navigate])
+    useEffect(()=>{
+        let logout=localStorage.getItem('token')
+        if(!logout){
+            navigate('/login');
+     
+        }
+    },[navigate])
     return (
         <div className='right-Header'>
             <div className='social-Main'>
@@ -42,10 +43,12 @@ const RightHeader = () => {
                     </li>
                 </ul>
             </div>
-            {toggle ?
-                <FiLogOut fill='black' color='white' size="30px" className='ml-50' onClick={logOut} /> : <div className='buy-btn'><Link to="/register" ><u>Sign Up</u></Link>
-                </div>}
-        </div>
+          <div>
+          {toggle ?<div className='buy-btn'><Link to="/register" ><u>Sign Up</u></Link>
+               </div>
+               :<div> <FiLogOut fill='black' color='white' size="30px" className='ml-50' onClick={logOut} /></div>  }
+          </div>
+        </div>  
     )
 }
 

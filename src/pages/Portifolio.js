@@ -118,11 +118,8 @@ const Portifolio = () => {
                   <span>VIEW DETAILS</span>
                 </div>
               </div>
-
             </div>
-
           </div>
-
         </div>
         <div className='port-css'>
           <div className='port-box'>

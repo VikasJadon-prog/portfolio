@@ -23,14 +23,16 @@ const Mobile = () => {
          <div className='mobile-social-right-header'>
          <RightHeader />
          </div>
-                <FaBars onClick={( ) => {
+                <span>
+                <FaBars onClick={() => {
                     setIsMenuOpen(true);
-                }} className='fabars' />
-                <div className={isMenuOpen ? "open" : " "} id='mobile_menu_wrap'>
-                    <RxCross2 onClick={() => {
+                }} />
+                <RxCross2 onClick={() => {
                         setIsMenuOpen(false);
-
-                    }} className='closer' />
+                    }}/>
+                </span>
+                <div className={isMenuOpen ? "open" : " "} id='mobile_menu_wrap'>
+                    
                     <ul className='mobile-header-closer-ui'>   
                         <li><Link to="/" className='mobile-header-closer-ui-li'>Home</Link></li>
                         <li><Link to="about" className='mobile-header-closer-ui-li' >About</Link></li>

@@ -3,7 +3,7 @@
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color:#191919;
+  background-color: #191919;
 }
 
 
@@ -903,7 +903,6 @@
   justify-content: center;
   align-items: center;
 }
-
 .footer-row {
   justify-content: space-between;
   display: flex;
@@ -968,13 +967,14 @@
 .tbody tr td button {
   justify-content: center;
 }
+
 /* 
 #regi-sec {
   background-color: #191919;
 } */
 
 #regi-sec .card {
-  background-color:#070707;
+  background-color: #070707;
   border-radius: 25px;
   box-shadow: 0 0px 3px rgba(198, 201, 216, .75);
 }
@@ -997,11 +997,12 @@
 
 }
 
-.login-logo{
+.login-logo {
   /* width: 75px; */
-  
+
   border-radius: 50%;
 }
+
 #regi-sec .card button:hover {
   background-color: transparent;
   transform: translateY(-6px);
@@ -1009,7 +1010,7 @@
 
 #regi-sec .card form input {
   background-color: transparent;
-  color:white;
+  color: white;
   border: 2px solid hsla(0, 0%, 100%, .2);
 }
 
@@ -1032,24 +1033,26 @@
 }
 
 #regForm p u {
-  color:wheat;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 17px;  
-}
-
-#login-p u {
-  color:wheat;
+  color: wheat;
   text-decoration: none;
   font-weight: bold;
   font-size: 17px;
 }
-.buy-btn a{
+
+#login-p u {
+  color: wheat;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.buy-btn a {
   text-decoration: none;
 }
-.buy-btn u{
+
+.buy-btn u {
   color: white;
-text-decoration: none;
+  text-decoration: none;
 }
 
 #login-p a {
@@ -1087,7 +1090,7 @@ text-decoration: none;
 }
 
 #reg-sec {
-  background-color:transparent;
+  background-color: transparent;
 }
 
 #regi-sec h1 {
@@ -1123,7 +1126,8 @@ text-decoration: none;
 #login-p {
   color: rgba(198, 201, 216, .75);
 }
-.loginputs{
+
+.loginputs {
   display: flex;
   justify-content: left;
   align-items: center;
@@ -1131,17 +1135,25 @@ text-decoration: none;
   margin-left: -30px;
 
 }
-.loginputs span{
+.loginputs:focus{
+  color:#f6004c;
+}
+
+.loginputs span {
   margin-left: -35px;
   display: flex;
 }
-.loginputs svg{
- font-size: 20px;
+
+.loginputs svg {
+  font-size: 20px;
 }
-.succ{
-  color:orange;
-  
-  font-weight: bold;}
+
+.succ {
+  color: orange;
+
+  font-weight: bold;
+}
+
 #login-btn button {
   width: 40%;
   color: #fff;
@@ -1159,6 +1171,7 @@ text-decoration: none;
   background: transparent;
   border: 2px solid #f9004d;
 }
+
 #login-btn a {
   color: wheat;
 }

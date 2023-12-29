@@ -1,15 +1,14 @@
 
-import React, { useState } from 'react';
+import React, { useRef,useState } from 'react';
 import aboutContact from '..//assets/images/aboutContact.jpg';
 import { FaUser } from "react-icons/fa";
 import { useEffect } from 'react';
 import { useCookies } from 'react-cookie';
-import { Link, useNavigate } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import logo1 from '../assets/images/logo.png';
 import { IoEyeOff } from "react-icons/io5";
 import { IoMdEye } from "react-icons/io";
 import { RiLockPasswordFill } from "react-icons/ri";
-
 
 const RegisterUser = () => {
 
@@ -17,70 +16,73 @@ const RegisterUser = () => {
         email: "",
         password: ""
     })
-    const [result, setResult] = useState(true)
+    const testRef = useRef();
+    // const [result, setResult] = useState(true)
     const [emailErr, setEmailErr] = useState('');
     const [passwordErr, setPasswordErr] = useState('');
     const [fetchData, setFetchData] = useState('');
     // const [user,setUser] = useState(false)
     const [cookies] = useCookies(['user']);
-    const [logUser,setLogUser]=useState('');
-    const [logPass,setPass]= useState('');
-    const [eye,setEye]=useState(true)
+    const [logUser, setLogUser] = useState('');
+    const [logPass, setPass] = useState('');
+    const [eye, setEye] = useState(true)
     useEffect(() => {
         const cookiesData = cookies.user || [];
         setFetchData(cookiesData);
         console.log(cookiesData)
     }, [cookies.user]);
     const navigate = useNavigate();
-    // useEffect(() => {
-    //     let login = localStorage.getItem('token')
-    //     if (login) {
-    //         navigate('/')
-    //     }
-    // }, [navigate])
     const handleLogInput = (e) => {
         const { name, value } = e.target;
         setLogData((preState) => ({ ...preState, [name]: value }))
     }
     const handleLogSub = (e) => {
         e.preventDefault();
+        let result=true
         const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
         if (!logData.email.match(regex)) {
             setEmailErr("invalid")
-            setResult(false)
+            // setResult(false)
+            result=false
+        }
+        else{
+            setEmailErr(" ")
         }
         if (logData.password.length === 0) {
             setPasswordErr("invalid")
-            setResult(false)
+            // setResult(false)
+            result=false
         }
         else if (logData.password.length > 20) {
             setPasswordErr("Not More Then 20 Words")
-            setResult(false);
+            // setResult(false);
+            result=false
+        }else{
+            setPasswordErr(" ")
         }
+
         if (result) {
             // localStorage.setItem("token", JSON.stringify(logData))
             let foundUser = fetchData.find((element) => element.email === logData.email);
             let foundPass = fetchData.find((element) => element.password === logData.password)
             if (foundUser && foundPass) {
                 localStorage.setItem('token', true)
-                navigate("/")
+                navigate('/')
             }
-            if (!foundUser)
-            {
+            if (!foundUser) {
                 setLogUser("Email Incorrect")
+                testRef.current.focus();
             }
-            else if(foundUser)
-            {
+            else if (foundUser) {
                 setLogUser('')
-               if (!foundPass){
+                if (!foundPass) {
                     setPass("Password Incorrect")
                 }
             }
-            if (foundPass)
-            {
+            if (foundPass) {
                 setPass('')
             }
-            
+
         }
     }
     return (
@@ -91,7 +93,7 @@ const RegisterUser = () => {
                         <div className="card text-white">
                             <div className="card-body p-md-5">
                                 <div className="row justify-content-center">
-                                    <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                                    <div className="col-md-7 col-lg-6 col-xl-5 order-2 order-lg-1">
                                         <div className="text-center">
                                             <img className='login-logo' src={logo1}
                                                 style={{ width: " 75px" }} alt="logo" />
@@ -101,24 +103,24 @@ const RegisterUser = () => {
                                             <h3 className="text-center">Log In</h3>
                                             <div className="form-outline mb-4">
 
-                                               {logUser?<p className='err'>{logUser}</p>: <label className="form-label">Username</label>}
-                                               <div className='loginputs'>
-                                              <FaUser />
-                                                <input type="email" name="email" value={logData.email} onChange={handleLogInput} className="form-control"
-                                                    placeholder=" email address" /></div>
+                                                {logUser ? <p className='err'>{logUser}</p> : <label className="form-label">Username</label>}
+                                                <div className='loginputs'>
+                                                    <FaUser />
+                                                    <input ref = {testRef} type="email" name="email" value={logData.email} onChange={handleLogInput} className="form-control"
+                                                        placeholder=" email address" autoComplete='on' /></div>
                                                 {emailErr ? <p className="err">{emailErr}</p> : null}
                                             </div>
 
                                             <div className="form-outline mb-5">
-                                               {logPass? <p className='err'>{logPass}</p>:<label className="form-label" >Password</label>}
-                                               <div className='loginputs'>
-                                                <RiLockPasswordFill />
-                                                    <input type={eye?"password":"text"} name="password" value={logData.password} onChange={handleLogInput} className="form-control" id='password' placeholder='Password' />
-                                                    <span >{eye?<IoMdEye onClick={()=>setEye(false)}/>:<IoEyeOff onClick={()=>setEye(true)}/>
-                                              }</span>
-                                    </div>
+                                                {logPass ? <p className='err'>{logPass}</p> : <label className="form-label" >Password</label>}
+                                                <div className='loginputs'>
+                                                    <RiLockPasswordFill />
+                                                    <input type={eye ? "password" : "text"} name="password" value={logData.password} onChange={handleLogInput} className="form-control" id='password' placeholder='Password' autoComplete='on' />
+                                                    <span >{eye ? <IoMdEye onClick={() => setEye(false)} /> : <IoEyeOff onClick={() => setEye(true)} />
+                                                    }</span>
+                                                </div>
                                                 {passwordErr ? <p className="err">{passwordErr}</p> : null}
-                                               
+
                                             </div>
                                             <div className="text-center pt-1 mb-5 pb-1" id="login-btn">
                                                 <button className="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit" value="submit">Sign In</button>

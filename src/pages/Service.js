@@ -20,7 +20,7 @@ const Service = () => {
               </div>
               <div className="service-grid-container-inner-content">
                 <h3 className="service-grid-container-inner-content-h3">
-                Mobile App Development
+                  Mobile App Development
                 </h3>
                 <p className="service-grid-container-inner-content-p">
                   I throw myself down among the tall grass by the stream as I lie close to the earth.
