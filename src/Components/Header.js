@@ -1,10 +1,9 @@
 
 import React from "react";
 import logo from "../assets/images/logo.png"
-import { Link } from "react-scroll";
+import { Link } from "react-router-dom";
 import RightHeader from "../Components/RightHeader";
 import Mobile from "./Mobile";
-import { Home } from "@mui/icons-material";
 const Header = () => {
   return (
     <>

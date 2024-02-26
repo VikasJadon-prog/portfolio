@@ -12,7 +12,6 @@ import About from "./About";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import RegisterUser from '../Components/RegisterUser';
 import Login from "../Components/Login";
-import Header  from '../Components/Header';
 const Main = () => {
 
   return (
@@ -29,7 +28,6 @@ const Main = () => {
         <Route path="/login" element={<Login />} />
       </Routes>
     </>
-
   )
 }
 

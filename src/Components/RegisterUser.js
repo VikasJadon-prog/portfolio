@@ -19,7 +19,6 @@ const RegisterUser = () => {
     const [fnameErr, setFnameErr] = useState('');
     const [emailErr, setEmailErr] = useState('');
     const [passwordErr, setPasswordErr] = useState('');
-    // const [result, setResult] = useState('');
     const [cookies, setCookie] = useCookies(['user']);
     const [submitted, setSubmitted] = useState(false)
     const [signUpErr, setSignUpErr] = useState(false)
@@ -27,6 +26,7 @@ const RegisterUser = () => {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [confirPassErr, setConfirPassErr] = useState('');
     const [conEye, setConEye] = useState(true)
+
     useEffect(() => {
         const cookiesData = cookies.user || [];
         setRegDataArr(cookiesData);
